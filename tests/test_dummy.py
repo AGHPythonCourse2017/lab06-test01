@@ -35,4 +35,6 @@ class TestDummy(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    dummy = TestDummy()
+    dummy.test_fun()
     unittest.main()
