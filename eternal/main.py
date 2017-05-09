@@ -1,5 +1,6 @@
 import sys
 import argparse
+import datetime
 
 
 def calculate(year, month, day):
@@ -10,7 +11,11 @@ def calculate(year, month, day):
     :param day:
     :return:
     """
-    return year + month + day
+    try:
+        data1 = datetime.date(year, month, day).weekday()
+        return data1
+    except ValueError:
+        return -1
 
 
 def main(args):
@@ -28,7 +33,11 @@ def main(args):
                         required=True,
                         help='Day')
     parsed_args = parser.parse_args(args)
+    if parsed_args.year < 0 or parsed_args.day < 0 or parsed_args.month <0:
+        return -1
     weekday = calculate(parsed_args.year, parsed_args.month, parsed_args.day)
+    if weekday < 0:
+        return -1
     print("Weekday {}".format(weekday))
     return 0
 
