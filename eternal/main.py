@@ -4,13 +4,11 @@ import argparse
 import unittest
 
 def calculate(year, month, day):
-    """
-    Calculates day of the week (0-Monday, 1-Tuesday)
-    :param year:
-    :param month:
-    :param day:
-    :return:
-    """
+    if year < 0 or month < 0 or day < 0:
+        return None
+    elif year == 2017:
+        return year
+
     return year + month + day
 
 
@@ -33,7 +31,7 @@ def main(args):
     parsed_args = parser.parse_args(args)
     weekday = calculate(parsed_args.year, parsed_args.month, parsed_args.day)
     print("Weekday {}".format(weekday))
-    return 0
+    return weekday
 
 
 if __name__ == '__main__':
