@@ -13,7 +13,7 @@ class TestDummy(unittest.TestCase):
         self.assertEqual(weekday, 1)
 
         weekday = calculate(1978, 2, 1)
-        self.assertEqual(weekday, 1)
+        self.assertEqual(weekday, 2)
 
         weekday = calculate(2000, 7, 9)
         self.assertEqual(weekday, 6)
@@ -42,7 +42,7 @@ class TestDummy(unittest.TestCase):
         retcode = main(("--year", "2012", "--month", "13", "--day", "15"))
         self.assertNotEqual(retcode, 0)
 
-        retcode = main(("--year", "2010", "--month", "11", "--day", "30"))
+        retcode = main(("--year", "2010", "--month", "11", "--day", "31"))
         self.assertNotEqual(retcode, 0)
 
 
