@@ -8,13 +8,12 @@ Run with PYTHONPATH=. python tests/test_dummy.py
 
 
 class TestDummy(unittest.TestCase):
-
     def test_fun(self):
         weekday = calculate(2001, 1, 3)
-        self.assertEqual(weekday, 3)
+        self.assertEqual(weekday, 2)
 
         weekday2 = calculate(2016, 10, 15)
-        self.assertEqual(weekday2, 6)
+        self.assertEqual(weekday2, 5)
 
         weekday3 = calculate(2017, 2, 28)
         self.assertEqual(weekday3, 1)
@@ -27,7 +26,6 @@ class TestDummy(unittest.TestCase):
 
         retcode = main(("--year", "2017", "--month", "2", "--day", "29"))
         self.assertNotEqual(retcode, 0)
-
 
 
 if __name__ == '__main__':
